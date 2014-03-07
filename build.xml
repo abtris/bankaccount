@@ -2,7 +2,7 @@
 
 <project name="BankAccount" default="build">
  <target name="build"
-   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpcb,docblox"/>
+   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpcb,phpdoc"/>
 
  <target name="build-parallel"
    depends="prepare,lint,tools-parallel,phpunit,phpcb"/>
@@ -139,9 +139,10 @@
   <exec executable="phpunit" failonerror="true"/>
  </target>
 
- <target name="docblox"
-	     description="Generate API documentation using Docblox">
-	<exec executable="docblox">
+ <target name="phpdoc"
+	     description="Generate API documentation using PHPDoc2">
+	<exec executable="php">
+    <arg value="phpdoc.php"/>
 		<arg value="-d" />
 		<arg value="${basedir}/src" />
 		<arg value="-t" />

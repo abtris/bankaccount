@@ -141,8 +141,7 @@
 
  <target name="phpdoc"
 	     description="Generate API documentation using PHPDoc2">
-	<exec executable="php">
-    <arg value="phpdoc.php"/>
+	<exec executable="phpdoc.php">
 		<arg value="-d" />
 		<arg value="${basedir}/src" />
 		<arg value="-t" />
